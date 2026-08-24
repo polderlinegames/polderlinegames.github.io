@@ -192,3 +192,11 @@ footer {
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
+
+
+/* P1-PUBLIC.1C.4 — keyboard/accessibility launch hardening */
+a:focus-visible {
+  outline: 3px solid var(--green);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
