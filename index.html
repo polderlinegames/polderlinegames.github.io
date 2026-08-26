@@ -38,6 +38,7 @@
   }
   </script>
   <link rel="stylesheet" href="/styles.css">
+  <script src="/gallery.js" defer></script>
 </head>
 <body>
   <header class="site-header">
@@ -133,20 +134,44 @@
         <p>Work in progress. Interface, balance and content may change during development.</p>
       </div>
 
-      <div class="screenshot-grid">
+      <div class="screenshot-grid" aria-label="Paths of Kin gameplay gallery">
         <figure>
-          <img src="assets/gameplay/main-gameplay.jpg" alt="Paths of Kin main gameplay screen showing the lineage, habitat, daily work assignments and ecology information." loading="lazy" decoding="async">
+          <button class="screenshot-open" type="button" data-gallery-index="0" aria-label="Enlarge Main gameplay screenshot">
+            <img src="assets/gameplay/main-gameplay.jpg" alt="Paths of Kin main gameplay screen showing the lineage, habitat, daily work assignments and ecology information." loading="lazy" decoding="async">
+            <span class="screenshot-zoom-hint" aria-hidden="true">Click to enlarge</span>
+          </button>
           <figcaption>Main gameplay</figcaption>
         </figure>
         <figure>
-          <img src="assets/gameplay/world-map.jpg" alt="Paths of Kin World Map migration planning screen showing route, destination and carried resources." loading="lazy" decoding="async">
+          <button class="screenshot-open" type="button" data-gallery-index="1" aria-label="Enlarge World Map and migration planning screenshot">
+            <img src="assets/gameplay/world-map.jpg" alt="Paths of Kin World Map migration planning screen showing route, destination and carried resources." loading="lazy" decoding="async">
+            <span class="screenshot-zoom-hint" aria-hidden="true">Click to enlarge</span>
+          </button>
           <figcaption>World Map &amp; migration planning</figcaption>
         </figure>
         <figure>
-          <img src="assets/gameplay/lineage-menu.jpg" alt="Paths of Kin Lineage Menu showing the current lineage summary and save options." loading="lazy" decoding="async">
+          <button class="screenshot-open" type="button" data-gallery-index="2" aria-label="Enlarge Lineage menu and persistence screenshot">
+            <img src="assets/gameplay/lineage-menu.jpg" alt="Paths of Kin Lineage Menu showing the current lineage summary and save options." loading="lazy" decoding="async">
+            <span class="screenshot-zoom-hint" aria-hidden="true">Click to enlarge</span>
+          </button>
           <figcaption>Lineage menu &amp; persistence</figcaption>
         </figure>
       </div>
+
+      <dialog class="screenshot-lightbox" id="screenshot-lightbox" aria-labelledby="lightbox-caption">
+        <div class="lightbox-panel">
+          <div class="lightbox-toolbar">
+            <p class="lightbox-count" id="lightbox-count" aria-live="polite"></p>
+            <button class="lightbox-close" type="button" aria-label="Close enlarged screenshot">×</button>
+          </div>
+          <div class="lightbox-image-wrap">
+            <button class="lightbox-nav lightbox-prev" type="button" aria-label="Previous screenshot">‹</button>
+            <img class="lightbox-image" src="assets/gameplay/main-gameplay.jpg" alt="">
+            <button class="lightbox-nav lightbox-next" type="button" aria-label="Next screenshot">›</button>
+          </div>
+          <p class="lightbox-caption" id="lightbox-caption"></p>
+        </div>
+      </dialog>
 
       <div class="playtest-callout">
         <div>

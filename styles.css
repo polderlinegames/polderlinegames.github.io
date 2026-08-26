@@ -345,3 +345,136 @@ a:focus-visible {
   outline-offset: 4px;
   border-radius: 4px;
 }
+
+/* Website Hotfix v1.0.2 — expandable gameplay screenshots */
+.screenshot-open {
+  position: relative;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: #12120f;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: zoom-in;
+}
+.screenshot-open:focus-visible {
+  outline: 3px solid var(--water);
+  outline-offset: -3px;
+}
+.screenshot-zoom-hint {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  padding: 6px 9px;
+  border-radius: 999px;
+  background: rgba(24,35,42,.88);
+  color: #fff;
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .01em;
+  opacity: .92;
+}
+.screenshot-lightbox {
+  width: min(1240px, calc(100% - 32px));
+  max-width: none;
+  max-height: calc(100% - 32px);
+  margin: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 22px;
+  overflow: hidden;
+  background: #11181d;
+  color: #fff;
+  box-shadow: 0 32px 90px rgba(0,0,0,.38);
+}
+.screenshot-lightbox::backdrop {
+  background: rgba(10,14,17,.84);
+  backdrop-filter: blur(3px);
+}
+.lightbox-panel { min-width: 0; }
+.lightbox-toolbar {
+  min-height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 8px 10px 8px 18px;
+  border-bottom: 1px solid rgba(255,255,255,.12);
+}
+.lightbox-count {
+  margin: 0;
+  color: rgba(255,255,255,.72);
+  font-size: .82rem;
+  font-weight: 750;
+}
+.lightbox-close,
+.lightbox-nav {
+  border: 0;
+  color: #fff;
+  background: rgba(255,255,255,.10);
+  cursor: pointer;
+}
+.lightbox-close {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  font-size: 1.8rem;
+  line-height: 1;
+}
+.lightbox-image-wrap {
+  display: grid;
+  grid-template-columns: 58px minmax(0,1fr) 58px;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+}
+.lightbox-image {
+  width: 100%;
+  max-height: 76vh;
+  object-fit: contain;
+  margin: 0 auto;
+  background: #0a0d0f;
+}
+.lightbox-nav {
+  width: 52px;
+  height: 58px;
+  border-radius: 14px;
+  font-size: 2.2rem;
+  line-height: 1;
+}
+.lightbox-close:hover,
+.lightbox-nav:hover { background: rgba(255,255,255,.18); }
+.lightbox-close:focus-visible,
+.lightbox-nav:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+.lightbox-caption {
+  margin: 0;
+  padding: 0 20px 18px;
+  text-align: center;
+  color: rgba(255,255,255,.88);
+  font-size: .94rem;
+  font-weight: 750;
+}
+@media (max-width: 680px) {
+  .screenshot-lightbox {
+    width: calc(100% - 16px);
+    max-height: calc(100% - 16px);
+    border-radius: 16px;
+  }
+  .lightbox-image-wrap {
+    grid-template-columns: 46px minmax(0,1fr) 46px;
+    gap: 6px;
+    padding: 10px 8px;
+  }
+  .lightbox-nav {
+    width: 42px;
+    height: 50px;
+  }
+  .lightbox-caption { padding-inline: 14px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .screenshot-lightbox::backdrop { backdrop-filter: none; }
+}
